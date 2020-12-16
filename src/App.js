@@ -31,12 +31,12 @@ function App() {
             {
               color: 'blue',
 
-              name: 'Пупупки',
+              name: 'Учеба',
             },
             {
               color: 'pink',
 
-              name: 'Пыпапки',
+              name: 'Книги',
             }
           ]}
             isRemovable
