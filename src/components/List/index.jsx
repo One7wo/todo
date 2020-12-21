@@ -1,11 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import removeSvg from '../../assets/img/remove.svg'
+
 import Badge from '../Badge'
 
 import './List.scss';
 
-function List({ items, isRemovable, onClick }) {
+function List({ items, isRemovable, onClick, onRemove }) {
+
+    const removeList = (item) => {
+        if (window.confirm('Вы дествительно хотите удалить список?')) {
+            onRemove(item);
+        }
+    }
+
     return (
         <ul onClick={onClick} className="list">
             {
@@ -15,6 +24,16 @@ function List({ items, isRemovable, onClick }) {
                             {item.icon ? item.icon : <Badge color={item.color} />}
                         </i>
                         <span>{item.name}</span>
+                        {
+                            isRemovable &&
+                            <img
+                                className="list__remove-icon"
+                                src={removeSvg}
+                                alt="Remove icon"
+                                onClick={() => removeList(item)}
+                            />
+                        }
+
                     </li>
                 ))
             }
