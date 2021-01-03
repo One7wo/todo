@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import axios from 'axios';
 
-
 import removeSvg from '../../assets/img/remove.svg'
 
 import Badge from '../Badge'
@@ -26,7 +25,7 @@ function List({ items, isRemovable, onClick, onRemove, onClickItem, activeItem }
                     <li
                         key={index}
                         className={classNames(item.className, { active: item.active 
-                            ? activeItem 
+                            ? item.active 
                             : activeItem && activeItem.id === item.id })}
                         onClick={onClickItem ? () => onClickItem(item) : null}
                     >
